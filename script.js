@@ -18,9 +18,14 @@ submitBtn.addEventListener("click", function (e)  {
     let year = document.getElementById("year").value;
     let pages = document.getElementById("pages").value;
     let tempbook = new addBook(title, author, year, pages);
-    removeChildren();
-    addBookToLibary(tempbook);
-    return displayBooks(bookArray);
+        if (title === "" || author === "" || year === ""){
+            return console.log("undefined")
+    } else { 
+        removeChildren();
+        addBookToLibary(tempbook);
+        displayBooks(bookArray)
+        return formValues.reset();
+    }
 });
 
 function removeChildren() {
