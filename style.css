@@ -1,3 +1,7 @@
+body > button {
+  margin-bottom: 1rem;
+}
+
 .book-display {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,5 +13,27 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+/* Book Submit Form Styling */
+.container {
+  border: solid 2px red;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.container form input {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.container form label {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.container form button {
+  margin-top: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

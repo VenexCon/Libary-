@@ -2,19 +2,32 @@
 
 //consts & lets
 let bookArray = []; 
-
 const bookDisplay = document.getElementById("bookcase");
+const formValues = document.getElementById("new-book");
+const displayBtn = document.getElementById("displayButton");
+const submitBtn = document.getElementById("submit");
 
-const book1 = new addBook("To Kill a Mockingbird", "John Doe", "2017", "1456");
-    const add1 = addBookToLibary(book1);
+let displayStatus = true; 
 
-const book2 = new addBook("A Short Walk through the Hindu Kush", "Eric Newby", "1957", "150");
-    const add2 = addBookToLibary(book2);
 
-const book3 = new addBook("7 Powerful Habits of Very Powerful People","Danny Montgomery", "2003");
-    const add3 = addBookToLibary(book3);
 
-    console.log(bookArray);
+submitBtn.addEventListener("click", function (e)  {
+    e.preventDefault();
+    let title = document.getElementById("user-title").value;
+    let author = document.getElementById("author").value;
+    let year = document.getElementById("year").value;
+    let pages = document.getElementById("pages").value;
+    let tempbook = new addBook(title, author, year, pages);
+    removeChildren();
+    addBookToLibary(tempbook);
+    return displayBooks(bookArray);
+});
+
+function removeChildren() {
+    let children = Array.from(document.querySelectorAll("#bookCards"));
+    children.forEach (child => bookDisplay.removeChild(child));
+}
+
 
 //constructor
 function addBook (title, author, year, pages) {
@@ -22,22 +35,29 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages; 
+
 };
 
-//functions
+
+// pushes new book to current array
 function addBookToLibary(book) {
    return bookArray.push(book)
 };
 
-function displayBooks () {
+
+//iterates and displays books in bookArray.
+function displayBooks (bookArray) {
     bookArray.forEach(book => { 
-        const bookCard = document.createElement("bookCard")
-        book.style.border = "solid 2px red";
+        const bookCard = document.createElement("bookCard");
+        bookCard.setAttribute("id", "bookCards")
+        bookCard.style.border = "solid 2px red";
+        bookCard.style.marginBottom = "2rem";
         bookCard.innerHTML = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
         bookDisplay.appendChild(bookCard); 
     });
 
 }
+
 
 
 

@@ -1,5 +1,10 @@
 
 
+body > button {
+    margin-bottom: 1rem;
+}
+
+
 
 .book-display {
     display: flex; 
@@ -7,3 +12,31 @@
     flex-wrap: wrap; 
     flex-direction: column; 
   }
+
+
+  /* Book Submit Form Styling */
+
+  .container {
+    border: solid 2px red;
+    width: fit-content;
+  
+
+        form {
+
+        input {
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        button { 
+            margin-top: 1rem;
+        }
+
+
+        }
+    }

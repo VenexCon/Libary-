@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Libary</title>
 </head>
 <body>
     
+    <button class="display-collection" id="displayButton">Display Books</button>
+
+<!--Display books with JS-->
     <div class="wrapper">
         <div class="book-display" id="bookcase">
 
@@ -17,16 +20,42 @@
     </div>
 
 
-    <div class="form" id="user-book">
-        <label for="author">Author
-            <input type="text" class="author" id="author" name="author">
-        </label>
+<!--book form-->
+    <div class="container">
 
-        <label for="title" id="title">Title
-            <input type="text" id="user-title" name="title">
-        </label>
+        <form id="new-book" method="post">
+
+            <div class="labelFlex">
+                <label for="user-title">Title of Book
+                    <input type="text" id="user-title" name="title">
+                </label>
+            </div>
+
+            <div class="labelFlex">
+                <label for="author">Author(s)
+                    <input type="text" class="author" id="author" name="author">
+                </label>
+            </div>
+
+            <div class="labelFlex">
+                <label for="year"> Year Published
+                    <input type="text" class="year" id="year" name="year">
+                </label>
+            </div>
+
+            <div class="labelFlex">
+                <label for="pages"> No. of Pages
+                    <input type="num" class="num" id="pages" name="pages">
+                </label>
+            </div>
+
+            <button type="submit" id="submit">Commit Book</button>
+
+        </form>
 
     </div>
+
+
 
 </body>
 </html>
