@@ -20,9 +20,9 @@ submitBtn.addEventListener("click", function (e)  {
         if (title === "" || author === "" || year === ""){
             return console.log("all fields required")
     } else { 
-        removeChildren();
+       // removeChildren()
         addBookToLibary(tempbook);
-        displayBooks(bookArray)
+        displayBook(tempbook)
         return formValues.reset();
     }
 });
@@ -32,7 +32,6 @@ function removeChildren() {
     let children = Array.from(document.querySelectorAll("#bookCards"));
     children.forEach (child => bookDisplay.removeChild(child));
 }
-
 
 //constructor function 
 function addBook (title, author, year, pages) {
@@ -48,29 +47,9 @@ function addBookToLibary(book) {
 };
 
 
-//hide & display status
-let displayStatus = true;
-//calls the function to destroy all cards in the DOM
-    displayBtn.addEventListener("click", () => {
-        if (displayStatus===true){
-        displayBooks (bookArray)
-        return displayStatus === false
-        } else ""
-    })
-        
-
-// calls the function to re-display the cards
-        hideButton.addEventListener("click", () => {
-            if (displayStatus === false){
-            removeChildren();
-            return displayStatus === true;
-            } else ""
-        } )
-
 
 //iterates and displays books in bookArray.
-function displayBooks (bookArray) {
-    bookArray.forEach(book => { 
+function displayBook (tempbook) {
 
         const bookCard = document.createElement("bookCard");
         const btn = document.createElement("button");
@@ -78,31 +57,29 @@ function displayBooks (bookArray) {
 
         bookCard.setAttribute("id", "bookCards");
         btn.setAttribute("id", "deleteBtn");
-        btn.setAttribute("data-num", (bookArray.length-1))
 
         
         btn.style.borderRadius = "2px"; 
         btn.style.backgroundColor = "red";
         btn.style.color = "white"
 
-        bookCard.setAttribute("data-index", (bookArray.length-1));
+
         bookCard.style.border = "solid 2px red";
         bookCard.style.marginBottom = "2rem";
-        bookCard.innerHTML = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
+        bookCard.innerHTML = `${tempbook.title}, ${tempbook.author}, ${tempbook.year}, ${tempbook.pages}`
 
         btn.appendChild(btnWord);
         bookCard.appendChild(btn);
         bookDisplay.appendChild(bookCard); 
 
         btn.addEventListener("click", (e) => {
-            console.log(e.target.id)
-        })
+            console.log(e.target.parentNode);
+            })
 
 
-    });
-}
+        };
 
-//Example Books 
+ 
 
 
 
