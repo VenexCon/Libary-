@@ -70,7 +70,8 @@ function addBookToLibary(tempbook) {
         for (i=0; i < bookArray.length; i++) {
             if (i == selection){
                 bookArray.splice (i, 1)
-                
+                clearCurrentArray(); 
+                return displayBook(bookArray)
             } else console.log("not found)")
         }
         
