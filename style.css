@@ -2,9 +2,7 @@ body > button {
   margin-bottom: 1rem;
 }
 
-.hidden {
-  display: none;
-}
+
 
 .book-display {
   display: -webkit-box;
