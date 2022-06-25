@@ -22,11 +22,11 @@ body > button {
     border: solid 2px red;
     max-width: fit-content;
   
+        form {
 
-
-        input {
-            display: block;
+        #user-title, #year, #author, #pages {
             margin-top: 0.5rem;
+            display: block;
         }
 
         label {
@@ -37,9 +37,7 @@ body > button {
         button { 
             margin-top: 1rem;
         }
-       
-
         }
-    
+    }
 
    

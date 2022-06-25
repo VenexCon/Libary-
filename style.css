@@ -2,7 +2,9 @@ body > button {
   margin-bottom: 1rem;
 }
 
-
+.hidden {
+  display: none;
+}
 
 .book-display {
   display: -webkit-box;
@@ -25,17 +27,17 @@ body > button {
   max-width: fit-content;
 }
 
-.container input {
+.container form #user-title, .container form #year, .container form #author, .container form #pages {
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.container form label {
   display: block;
   margin-top: 0.5rem;
 }
 
-.container label {
-  display: block;
-  margin-top: 0.5rem;
-}
-
-.container button {
+.container form button {
   margin-top: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

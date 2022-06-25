@@ -21,9 +21,9 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages;
-    this.read = function read()  {
-        return console.log(`${this.title} has been read`)
-        }
+    this.read = function read(e){
+        return console.log(`${title} has been read`)
+        };
     };
 
 
@@ -36,7 +36,7 @@ newBook.addEventListener("submit", function (e) {
     let author = document.getElementById("author").value;
     let year = document.getElementById("year").value;
     let pages = document.getElementById("pages").value;
-    let tempbook = new addBook();
+    let tempbook = new addBook(title, author, pages, year);
 
        if (title === "" || author === "" || year === ""){
             return console.log("all fields required")
@@ -51,6 +51,7 @@ newBook.addEventListener("submit", function (e) {
 
 
 // called during the submit eventListener
+
 const pushBooktoLib = (tempbook) => {
     return bookArray.push(tempbook)
     };
@@ -76,7 +77,6 @@ const pushBooktoLib = (tempbook) => {
             }
     }
 
-// test read() function 
 
 
 
@@ -88,23 +88,27 @@ function displayBook (bookArray){
         bookArray.forEach(book =>  {
 
         const bookCard = document.createElement("bookCard");
+
+
         const deleteBtn = document.createElement("button");
-             const deleteWord = document.createTextNode("Delete");
+            const deleteWord = document.createTextNode("Delete");
+
+
         const readBtn = document.createElement("button");
-            const readBtnWord = document.createTextNode("Read"); 
-       
+            const readBtnWord = document.createTextNode("Read");
 
 
         bookCard.setAttribute("id", "bookCards");
         deleteBtn.setAttribute("id", "deleteBtn");
         deleteBtn.setAttribute("data-index",`${i}`);i++; 
         // "i" is set to relate to the index position of the created element in the array.
-        readBtn.setAttribute("id", "read-button")
+        readBtn.setAttribute("id", "read-button");
         
         
         deleteBtn.style.borderRadius = "2px"; 
         deleteBtn.style.backgroundColor = "red";
         deleteBtn.style.color = "white"
+
 
         readBtn.style.borderRadius = "2px"; 
         readBtn.style.backgroundColor = "red";
@@ -115,18 +119,21 @@ function displayBook (bookArray){
         bookCard.style.marginBottom = "2rem";
         bookCard.innerHTML = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
 
+        
         deleteBtn.appendChild(deleteWord);
-        readBtn.appendChild(readBtnWord)
+        readBtn.appendChild(readBtnWord);
         bookCard.appendChild(deleteBtn);
         bookCard.appendChild(readBtn);
         bookDisplay.appendChild(bookCard); 
+
 
         deleteBtn.addEventListener("click", (e) => {
             deleteSelf(e)
             })
 
-        readBtn.addEventListener("click",() => {
-            book.read();
+
+        readBtn.addEventListener("click",(e) => {
+            book.read(e);
         });
         });
 
