@@ -8,6 +8,7 @@ let bookArray = [];
 const bookDisplay = document.getElementById("bookcase");
 const formValues = document.getElementById("new-book");
 const submitBtn = document.getElementById("submit");
+const newBook = document.getElementById("new-book")
 
 
 // if statement was being a pain, cheeky delete & recreate
@@ -34,7 +35,7 @@ function addBook (title, author, year, pages) {
 
 
 // preventing form submission through PD, values provided by form 
-submitBtn.addEventListener("click", function (e)  {
+newBook.addEventListener("submit", function (e) {
     e.preventDefault(e);
     let title = document.getElementById("user-title").value;
     let author = document.getElementById("author").value;
