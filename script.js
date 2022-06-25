@@ -9,7 +9,14 @@ const bookDisplay = document.getElementById("bookcase");
 const formValues = document.getElementById("new-book");
 const submitBtn = document.getElementById("submit");
 const displayBtn = document.getElementById("displayButton");
-const hideButton = document.getElementById("hideButton"); 
+    displayBtn.addEventListener("click", () => {
+        clearCurrentArray();
+        displayBook(bookArray)
+        });
+const hideButton = document.getElementById("hideButton");
+    hideButton.addEventListener("click", () => {
+        clearCurrentArray ()
+    })
 
 
 //constructor function 
@@ -34,7 +41,6 @@ submitBtn.addEventListener("click", function (e)  {
             return console.log("all fields required")
     } else { 
         
-        //clearCurrentArray()
         addBookToLibary(tempbook);
         clearCurrentArray()
         displayBook(bookArray)
@@ -54,7 +60,6 @@ function addBookToLibary(tempbook) {
             console.log(children);
             return children.forEach(child => bookDisplay.removeChild(child));
     }
-
 
 //refactored to call a single book 
 function displayBook (bookArray) {
