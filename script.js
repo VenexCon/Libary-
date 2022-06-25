@@ -35,7 +35,7 @@ function addBook (title, author, year, pages) {
 
 // preventing form submission through PD, values provided by form 
 submitBtn.addEventListener("click", function (e)  {
-    e.preventDefault();
+    e.preventDefault(e);
     let title = document.getElementById("user-title").value;
     let author = document.getElementById("author").value;
     let year = document.getElementById("year").value;
@@ -60,7 +60,6 @@ function addBookToLibary(tempbook) {
 // Called in the submit, hideButton and displayButton El. 
     function clearCurrentArray () {
         const children = Array.from(document.querySelectorAll("bookCard")); 
-            console.log(children);
             return children.forEach(child => bookDisplay.removeChild(child));
     }
 

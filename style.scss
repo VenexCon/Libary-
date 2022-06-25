@@ -20,10 +20,9 @@ body > button {
 
   .container {
     border: solid 2px red;
-    width: fit-content;
+    max-width: fit-content;
   
 
-        form {
 
         input {
             display: block;
@@ -38,7 +37,9 @@ body > button {
         button { 
             margin-top: 1rem;
         }
-
+       
 
         }
-    }
+    
+
+   

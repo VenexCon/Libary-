@@ -2,6 +2,10 @@ body > button {
   margin-bottom: 1rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .book-display {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,22 +22,22 @@ body > button {
 /* Book Submit Form Styling */
 .container {
   border: solid 2px red;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
-.container form input {
+.container input {
   display: block;
   margin-top: 0.5rem;
 }
 
-.container form label {
+.container label {
   display: block;
   margin-top: 0.5rem;
 }
 
-.container form button {
+.container button {
   margin-top: 1rem;
 }
 /*# sourceMappingURL=style.css.map */
