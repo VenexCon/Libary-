@@ -8,18 +8,23 @@ let bookArray = [];
 const bookDisplay = document.getElementById("bookcase");
 const formValues = document.getElementById("new-book");
 const submitBtn = document.getElementById("submit");
+
+
+// if statement was being a pain, cheeky delete & recreate
 const displayBtn = document.getElementById("displayButton");
     displayBtn.addEventListener("click", () => {
         clearCurrentArray();
         displayBook(bookArray)
         });
+
+
 const hideButton = document.getElementById("hideButton");
     hideButton.addEventListener("click", () => {
-        clearCurrentArray ()
+        clearCurrentArray ();
     })
 
 
-//constructor function 
+//Called during the submit form. 
 function addBook (title, author, year, pages) {
     this.title = title; 
     this.author = author; 
@@ -28,8 +33,7 @@ function addBook (title, author, year, pages) {
     };
 
 
-
-// This takes the form.values and assigns them as per the constructor Func. 
+// preventing form submission through PD, values provided by form 
 submitBtn.addEventListener("click", function (e)  {
     e.preventDefault();
     let title = document.getElementById("user-title").value;
@@ -40,7 +44,6 @@ submitBtn.addEventListener("click", function (e)  {
        if (title === "" || author === "" || year === ""){
             return console.log("all fields required")
     } else { 
-        
         addBookToLibary(tempbook);
         clearCurrentArray()
         displayBook(bookArray)
@@ -48,23 +51,39 @@ submitBtn.addEventListener("click", function (e)  {
     }
 });
 
-
-// pushes new book to current array
+// called during the submit eventListener
 function addBookToLibary(tempbook) {
    return bookArray.push(tempbook)
 };
 
-//function to remove book by matching array location 
+
+// Called in the submit, hideButton and displayButton El. 
     function clearCurrentArray () {
         const children = Array.from(document.querySelectorAll("bookCard")); 
             console.log(children);
             return children.forEach(child => bookDisplay.removeChild(child));
     }
 
-//refactored to call a single book 
-function displayBook (bookArray) {
-        bookArray.forEach(book =>  {
+//Delete Card Button 
+    function deleteSelf (e) { 
+        let selection = e.currentTarget.getAttribute("data-index")
+        for (i=0; i < bookArray.length; i++) {
+            if (i == selection){
+                bookArray.splice (i, 1)
+                
+            } else console.log("not found)")
+        }
+        
+    }
 
+
+
+
+//Card & Buttton Styling 
+function displayBook (bookArray){     
+        // increments with each new card creation, replace with for loop.
+        let i = 0;
+        bookArray.forEach(book =>  {
 
         const bookCard = document.createElement("bookCard");
         const btn = document.createElement("button");
@@ -73,8 +92,10 @@ function displayBook (bookArray) {
 
         bookCard.setAttribute("id", "bookCards");
         btn.setAttribute("id", "deleteBtn");
-        btn.setAttribute("data-index","test" )
-
+        btn.setAttribute("data-index",`${i}`);
+        // "i" is set to relate to the index position of the created element in the array.
+        i++; 
+        
         
         btn.style.borderRadius = "2px"; 
         btn.style.backgroundColor = "red";
@@ -90,17 +111,12 @@ function displayBook (bookArray) {
         bookDisplay.appendChild(bookCard); 
 
         btn.addEventListener("click", (e) => {
-           return console.log(e.target.parentNode);
+            deleteSelf(e)
             })
-
 
         });
 
     }
-// tommorrow 
-
-// create a counter, assign the delete button a data attribute
-// When pressed, the button should slice the array at the index of the button. 
 
 
 
