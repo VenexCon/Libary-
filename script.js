@@ -21,9 +21,12 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages;
-    this.read = function read(e){
-        return console.log(`${title} has been read`)
-        };
+    this.read = "no";
+
+    this.isRead = function read(e){
+        console.log(`Has ${this.title} been read? ${this.read}`)
+            return this.read = "This book has been read";
+            };
     };
 
 
@@ -87,34 +90,44 @@ function displayBook (bookArray){
 
         bookArray.forEach(book =>  {
 
+        // main container element for each card.  
         const bookCard = document.createElement("bookCard");
-
+            bookCard.setAttribute("id", "bookCards");
 
         const deleteBtn = document.createElement("button");
             const deleteWord = document.createTextNode("Delete");
+            deleteBtn.setAttribute("id", "deleteBtn");
+            deleteBtn.setAttribute("data-index",`${(i++)}`); 
 
 
         const readBtn = document.createElement("button");
             const readBtnWord = document.createTextNode("Read");
+            readBtn.setAttribute("id", "read-button");
+
+        const checkContainer = document.createElement("Div");
+        const label = document.createElement("label")
+              label.setAttribute("for", "read")
+              label.innerHTML= "Have you read it?"
+
+        const checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox")
+            checkbox.setAttribute("id", "read");
 
 
-        bookCard.setAttribute("id", "bookCards");
-        deleteBtn.setAttribute("id", "deleteBtn");
-        deleteBtn.setAttribute("data-index",`${i}`);i++; 
-        // "i" is set to relate to the index position of the created element in the array.
-        readBtn.setAttribute("id", "read-button");
+
         
         
+        //Delete Button Styles
         deleteBtn.style.borderRadius = "2px"; 
         deleteBtn.style.backgroundColor = "red";
         deleteBtn.style.color = "white"
 
-
+        //read Btn Styles 
         readBtn.style.borderRadius = "2px"; 
         readBtn.style.backgroundColor = "red";
         readBtn.style.color = "white"
 
-
+        //bookcard Styles
         bookCard.style.border = "solid 2px red";
         bookCard.style.marginBottom = "2rem";
         bookCard.innerHTML = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
@@ -122,8 +135,11 @@ function displayBook (bookArray){
         
         deleteBtn.appendChild(deleteWord);
         readBtn.appendChild(readBtnWord);
+        checkContainer.appendChild(label);
+        checkContainer.appendChild(checkbox);
         bookCard.appendChild(deleteBtn);
         bookCard.appendChild(readBtn);
+        bookCard.appendChild(checkContainer);
         bookDisplay.appendChild(bookCard); 
 
 
@@ -133,7 +149,7 @@ function displayBook (bookArray){
 
 
         readBtn.addEventListener("click",(e) => {
-            book.read(e);
+            book.isRead(e);
         });
         });
 
