@@ -68,7 +68,7 @@ function addBookToLibary(tempbook) {
         let selection = e.currentTarget.getAttribute("data-index")
         for (i=0; i < bookArray.length; i++) {
             if (i == selection){
-                bookArray.splice (i, 1);
+                bookArray.splice (i, 1)
                 clearCurrentArray(); 
                 return displayBook(bookArray)
             } else console.log("not found)")
