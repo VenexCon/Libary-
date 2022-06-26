@@ -45,7 +45,7 @@ newBook.addEventListener("submit", function (e) {
             return console.log("all fields required")
 
             } else {
-                pushBooktoLib(tempbook);
+                pushBookToLib(tempbook);
                 clearCurrentArray()
                 displayBook(bookArray)
                 return formValues.reset();
@@ -55,12 +55,12 @@ newBook.addEventListener("submit", function (e) {
 
 // called during the submit eventListener
 
-const pushBooktoLib = (tempbook) => {
-    return bookArray.push(tempbook)
+const pushBookToLib = (book) => {
+    return bookArray.push(book)
     };
 // demo book 
     const book1 = new addBook("to kill", "john Doe", "1234", "123");
-    pushBooktoLib(book1);
+    pushBookToLib(book1);
 
 // Called in the submit, hideButton and displayButton El. 
     function clearCurrentArray () {
@@ -69,26 +69,21 @@ const pushBooktoLib = (tempbook) => {
     }
 
 //Delete Card Button 
- const deleteSelf=  (e) => { 
+ const deleteSelf = function (e) {
         let selection = e.currentTarget.getAttribute("data-index") //data-index assigned in displayBook Func
-            for (i=0; i < bookArray.length; i++) {
-                if (i == selection){
-                    bookArray.splice (i, 1)
-                    clearCurrentArray(); 
-                    return displayBook(bookArray)
-                } else console.log("not found)")
-            }
-    }
-
-
-
-
-//Card & Buttton Styling 
-function displayBook (bookArray){     
+            bookArray.splice (selection, 1)
+            clearCurrentArray(); 
+            displayBook(bookArray)
+            return console.log("Book deleted") 
+        };
+            
+    
+//Card & Button Styling 
+function displayBook (Array){     
         // increments with each new card creation, replace with for loop.
         let i = 0;
 
-        bookArray.forEach(book =>  {
+        Array.forEach(book =>  {
 
         // main container element for each card.  
         const bookCard = document.createElement("bookCard");
@@ -113,10 +108,7 @@ function displayBook (bookArray){
             checkbox.setAttribute("type", "checkbox")
             checkbox.setAttribute("id", "read");
 
-
-
-        
-        
+               
         //Delete Button Styles
         deleteBtn.style.borderRadius = "2px"; 
         deleteBtn.style.backgroundColor = "red";
@@ -127,10 +119,10 @@ function displayBook (bookArray){
         readBtn.style.backgroundColor = "red";
         readBtn.style.color = "white"
 
-        //bookcard Styles
+        //bookCard Styles
         bookCard.style.border = "solid 2px red";
         bookCard.style.marginBottom = "2rem";
-        bookCard.innerHTML = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
+        bookCard.innerText = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
 
         
         deleteBtn.appendChild(deleteWord);
