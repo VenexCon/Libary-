@@ -85,53 +85,52 @@ function displayBook (Array){
 
         Array.forEach(book =>  {
 
+
+
         // main container element for each card.  
+        // Most styles implemented in JS and then classess added.
         const bookCard = document.createElement("bookCard");
-            bookCard.setAttribute("id", "bookCards");
+            bookCard.classList.add("example-card");
+
+        const titleEle = document.createElement("h3")
+            titleEle.classList.add("bookCard-title")
+            titleEle.textContent = `${this.title}`
+
+        const pagesEle = document.createElement("p")
+            pages.classList.add("pages-style")
+            pages.innerText = `${this.pages}`
+
+        const authorEle = document.createElement("p")
+            author.classList.add ("author-style")
+            author.innerText = `${this.author}`
+
+        const yearEle = document.createElement("p")
+            year.classList.add("year-style")
+            year.innerText = `${this.year}`
+
+        const appendButton = document.createElement("div");
+            appendButton.classList.add("appendBtn");
 
         const deleteBtn = document.createElement("button");
             const deleteWord = document.createTextNode("Delete");
             deleteBtn.setAttribute("id", "deleteBtn");
-            deleteBtn.setAttribute("data-index",`${(i++)}`); 
-
+            deleteBtn.setAttribute("data-index",`${(i++)}`);
+            deleteBtn.classList.add("button");
 
         const readBtn = document.createElement("button");
             const readBtnWord = document.createTextNode("Read");
             readBtn.setAttribute("id", "read-button");
+            readBtn.classList.add("button")
 
-        const checkContainer = document.createElement("Div");
-        const label = document.createElement("label")
-              label.setAttribute("for", "read")
-              label.innerHTML= "Have you read it?"
-
-        const checkbox = document.createElement("input");
-            checkbox.setAttribute("type", "checkbox")
-            checkbox.setAttribute("id", "read");
-
-               
-        //Delete Button Styles
-        deleteBtn.style.borderRadius = "2px"; 
-        deleteBtn.style.backgroundColor = "red";
-        deleteBtn.style.color = "white"
-
-        //read Btn Styles 
-        readBtn.style.borderRadius = "2px"; 
-        readBtn.style.backgroundColor = "red";
-        readBtn.style.color = "white"
-
-        //bookCard Styles
-        bookCard.style.border = "solid 2px red";
-        bookCard.style.marginBottom = "2rem";
-        bookCard.innerText = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`
-
+        //bookCard.innerText = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`;
         
         deleteBtn.appendChild(deleteWord);
         readBtn.appendChild(readBtnWord);
-        checkContainer.appendChild(label);
-        checkContainer.appendChild(checkbox);
-        bookCard.appendChild(deleteBtn);
-        bookCard.appendChild(readBtn);
-        bookCard.appendChild(checkContainer);
+        bookCard.appendChild(titleEle);
+        bookCard.appendChild(authorEle);
+        bookCard.appendChild(yearEle);
+        bookCard.appendChild(pagesEle);
+
         bookDisplay.appendChild(bookCard); 
 
 

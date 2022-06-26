@@ -1,3 +1,4 @@
+/* Variables */
 * {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-box-sizing: border-box;
@@ -7,9 +8,11 @@
 }
 
 main {
-  background-color: grey;
+  background-color: #70d8ff;
   height: 100vh;
-  width: 100vw;
+  width: 60vw;
+  margin: auto;
+  position: relative;
 }
 
 nav {
@@ -18,9 +21,7 @@ nav {
   display: flex;
   border: solid 2px black;
   margin-bottom: 2rem;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-height: 4rem;
   width: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -29,40 +30,116 @@ nav {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1rem;
+  background-color: #ff70d6;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0.5rem;
 }
 
 nav .logoWrapper {
-  padding: 1rem;
-  border: solid 2px red;
   -webkit-box-flex: 1fr;
       -ms-flex-positive: 1fr;
           flex-grow: 1fr;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #70d8ff;
+}
+
+nav .logoWrapper h1 {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
+
+nav img {
+  width: 10vw;
 }
 
 nav .buttonWrapper {
-  border: 2px solid black;
-  height: 1.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 1.5rem;
   padding-right: 2rem;
   -webkit-box-flex: 1fr;
       -ms-flex-positive: 1fr;
           flex-grow: 1fr;
   margin-left: auto;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+nav .buttonWrapper button {
+  border-radius: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 2rem;
+  padding: 0.25rem;
+  outline-style: none;
+  outline: #ff70d6;
+  font-size: 1rem;
+  background-color: #ff70d6;
+  color: #ffff;
 }
 
 .book-display {
+  border: solid 2px #ed682a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 5px;
+  gap: 1rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1rem;
+}
+
+.book-display .example-card {
+  border: solid 2px #ff70d6;
+  width: 25%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  min-height: 10rem;
+  height: 30%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 0.5rem;
+  background-color: #ff70d6;
+  color: #ffff;
+}
+
+.book-display .example-card button {
+  width: 50%;
+  margin: auto;
+  border-radius: 1px;
+  background-color: #ff70d6;
+  color: #ffff;
+  font-weight: bold;
 }
 
 /* Book Submit Form Styling */
@@ -71,6 +148,7 @@ nav .buttonWrapper {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  margin: 4rem auto;
 }
 
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
@@ -85,5 +163,47 @@ nav .buttonWrapper {
 
 .container form button {
   margin-top: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav * {
+    margin: auto;
+  }
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  nav .buttonWrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    padding-right: 0;
+    -webkit-box-flex: 1fr;
+        -ms-flex-positive: 1fr;
+            flex-grow: 1fr;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    margin: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */

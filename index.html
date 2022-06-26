@@ -13,24 +13,44 @@
 <main>
 
     <nav>
-        <div class="logoWrapper"><h3>Libary</h3></div>
+        <div class="logoWrapper">
+            <h1>Your Libary</h1>
+        </div>
+        <img id="nav-img" src="./Images/SVG/Reading a book_Isometric.svg" alt="A person reading in a chair">
         <div class="buttonWrapper">
             <button class="display-collection" id="displayButton">Display Books</button>
             <button class="hide-collection" id="hideButton">Hide Button</button>
+            <button class="login" id="login">Login</button>
+            <button class="create-account" id="create-account">Create account</button>
+            <label for="readBtn">
+                <div class="appendCheckbox"></div>
+            </label>
+            
         </div>
     </nav>
 
 
 <!--Display books with JS-->
-    <div class="wrapper">
+    <div class="bookCard-wrapper">
         <div class="book-display" id="bookcase">
+
+            <div class="example-card">
+                <h3 class="bookCard-title">Title</h3>
+                <p class="author-style">Author</p>
+                <p class="year-style">Year:</p>
+                <p class="pages-style">Pages:</p><p class="inset-pages"></p>
+                <div class="appendBtn">
+                    <button>Read it?</button>
+                </div>
+
+            </div>
 
         </div>
     </div>
 
 
-<!--book form-->
-    <div class="container">
+<!--book form for user -->
+    <div class="container is-active">
 
         <form id="new-book" method="/">
 
