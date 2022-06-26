@@ -94,19 +94,19 @@ function displayBook (Array){
 
         const titleEle = document.createElement("h3")
             titleEle.classList.add("bookCard-title")
-            titleEle.textContent = `${this.title}`
+            titleEle.textContent = `${this.title}`;
 
         const pagesEle = document.createElement("p")
             pages.classList.add("pages-style")
-            pages.innerText = `${this.pages}`
+            pages.textContent = `${this.pages}`;
 
         const authorEle = document.createElement("p")
             author.classList.add ("author-style")
-            author.innerText = `${this.author}`
+            author.textContent = `${this.author}`;
 
         const yearEle = document.createElement("p")
             year.classList.add("year-style")
-            year.innerText = `${this.year}`
+            year.textContent = `${this.year}`;
 
         const appendButton = document.createElement("div");
             appendButton.classList.add("appendBtn");
@@ -130,6 +130,8 @@ function displayBook (Array){
         bookCard.appendChild(authorEle);
         bookCard.appendChild(yearEle);
         bookCard.appendChild(pagesEle);
+        bookCard.appendChild(deleteBtn);
+        bookCard.appendChild(readBtn);
 
         bookDisplay.appendChild(bookCard); 
 
