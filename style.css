@@ -1,9 +1,45 @@
-body > button {
-  margin-bottom: 1rem;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.hidden {
-  display: none;
+main {
+  background-color: grey;
+  height: 100vh;
+  width: 100vw;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: solid 2px black;
+  margin-bottom: 2rem;
+  height: 4rem;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .logoWrapper {
+  padding: 1rem;
+  border: solid 2px red;
+}
+
+nav .buttonWrapper {
+  border: 2px solid black;
+  margin-left: auto;
+  height: 1.5rem;
+  padding-right: 2rem;
 }
 
 .book-display {
