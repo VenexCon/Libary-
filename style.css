@@ -1,6 +1,8 @@
+/*Imports */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 /* Variables */
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Serif', serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
@@ -19,7 +21,6 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: solid 2px black;
   margin-bottom: 2rem;
   min-height: 4rem;
   width: 100%;
@@ -112,7 +113,7 @@ nav .buttonWrapper button {
 }
 
 .book-display .example-card {
-  border: solid 2px #ff70d6;
+  border: solid 2px #efe704;
   width: 25%;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -128,17 +129,23 @@ nav .buttonWrapper button {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.5rem;
-  background-color: #ff70d6;
+  background-color: #ee00ff;
   color: #ffff;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 .book-display .example-card button {
   width: 50%;
   margin: auto;
-  border-radius: 1px;
-  background-color: #ff70d6;
-  color: #ffff;
+  border-radius: 5px;
+  background-color: #70d8ff;
+  color: #ee00ff;
   font-weight: bold;
+}
+
+.example-card.is-active {
+  background-color: #efe704;
 }
 
 /* Book Submit Form Styling */
@@ -150,10 +157,15 @@ nav .buttonWrapper button {
   margin: 4rem auto;
 }
 
+.container form {
+  font-style: italic;
+}
+
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
   margin-top: 0.5rem;
   display: block;
   color: #ed682a;
+  font-style: italic;
 }
 
 .container form label {
@@ -162,7 +174,20 @@ nav .buttonWrapper button {
 }
 
 .container form button {
-  margin-top: 1rem;
+  display: block;
+  border-radius: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.25rem;
+  outline-style: none;
+  outline: #ff70d6;
+  background-color: #ff70d6;
+  color: #ffff;
+  margin: 0.5rem auto;
 }
 
 @media only screen and (max-width: 1000px) {

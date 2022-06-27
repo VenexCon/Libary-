@@ -1,3 +1,7 @@
+    /*Imports */
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+    
     
     /* Variables */ 
     $font-base: #70d8ff; 
@@ -6,11 +10,12 @@
     $contrastingFont:#2aea9a;
     $font-base2:#efe704;
     $white: #ffff;
+    $alt-color: #ee00ff;
 
 
 
     *{
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Noto Serif', serif;
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -28,7 +33,7 @@
 
     nav {
         display: flex;
-        border: solid 2px black;
+        //border: solid 2px black;
         margin-bottom: 2rem;
         min-height:4rem;
         width: 100%;
@@ -100,7 +105,7 @@
         padding: 1rem; 
 
         .example-card {
-            border: solid 2px $nav-back-color;
+            border: solid 2px $font-base2;
             width: 25%;
             min-width: fit-content;
             min-height: 10rem;
@@ -109,22 +114,30 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            background-color: $nav-back-color;
+            background-color: $alt-color;
             color: $white;
+            border-radius: 5px;
+            padding: 0.5rem;
+
 
             button{
                 width: 50%;
                 margin: auto;
-                border-radius: 1px;
-                background-color: $nav-back-color;
-                color: $white;
+                border-radius: 5px;
+                background-color: $font-base;
+                color: $alt-color;
                 font-weight: bold;
+
 
             }
 
         }
     }
 
+    .example-card.is-active { 
+        background-color: $font-base2;
+
+    }
 
   /* Book Submit Form Styling */
 
@@ -134,11 +147,14 @@
     margin:4rem auto;
   
         form {
+            font-style: italic;
 
         #user-title, #year, #author, #pages {
             margin-top: 0.5rem;
             display: block;
             color: $detailing;
+            font-style: italic;
+           
         }
 
         label {
@@ -146,11 +162,23 @@
             margin-top: 0.5rem;
         }
 
+        
         button { 
-            margin-top: 1rem;
-        }
-        }
-    }
+            display: block;
+            border-radius: none;
+            width: fit-content;
+            height: fit-content;
+            padding: 0.25rem;
+            outline-style: none;
+            outline: $nav-back-color;
+            background-color: #ff70d6;
+            color: $white;
+            margin: 0.5rem auto;
+                    }
+
+                }
+            }
+    
 
 
     //media quirey section

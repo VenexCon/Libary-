@@ -9,10 +9,10 @@ const formValues = document.getElementById("new-book");
 const newBook = document.getElementById("new-book");
 
 const hideButton = document.getElementById("hideButton");
-        hideButton.addEventListener("click", () => {clearCurrentArray ();})
+        hideButton.addEventListener("click", () => {hideArray()});
 
 const displayBtn = document.getElementById("displayButton");
-        displayBtn.addEventListener("click", () => {clearCurrentArray();displayBook(bookArray)});
+        displayBtn.addEventListener("click", () => {showArray()});
 
 
 //Called during the submit form. 
@@ -21,18 +21,25 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages;
-    this.read = false;
 
-    this.isRead = function read(e){
-        console.log(`Has ${this.title} been read? ${this.read}`)
-            return this.read = "This book has been read";
-            };
+
+    this.read = function (e) {
+       if (e.target.checked && this.readstatus === undefined || false) {
+        console.log ("status set to true")
+        return this.readStatus = true;
+       } else return this.readStatus = false;
+
+    }
   
-    this.delete = function () {
+    this.delete = function (e) {
       let index = bookArray.findIndex(book => book.title === this.title);
       bookArray.splice(index, 1);
-      clearCurrentArray(); 
-      displayBook(bookArray);
+      target = e.target.parentNode; 
+        return target.parentNode.removeChild(target); 
+
+
+     // clearCurrentArray(); 
+     // displayBook(bookArray);
     };
  
     };
@@ -53,7 +60,7 @@ newBook.addEventListener("submit", function (e) {
 
             } else {
                 pushBookToLib(tempbook);
-                clearCurrentArray()
+                //clearCurrentArray()
                 displayBook(bookArray)
                 return formValues.reset();
             }
@@ -72,19 +79,31 @@ const pushBookToLib = (book) => {
       const book2 = new addBook("to rob", "john Row", "1234", "123");
     pushBookToLib(book2);
 
+
+
 // Called in the submit, hideButton and displayButton El. 
     function clearCurrentArray () {
         const children = Array.from(document.querySelectorAll("bookCard")); 
             return children.forEach(child => bookDisplay.removeChild(child));
+    };
+
+    function hideArray () {
+        const children = Array.from(document.querySelectorAll("bookCard"));
+            return children.forEach(child => child.style.visibility = "hidden");
     }
 
-            
-//Card & Button Styling 
-function displayBook (Array){     
-        // increments with each new card creation, replace with for loop.
-        let i = 0;
+    function showArray () {
+        const children = Array.from(document.querySelectorAll("bookCard"));
+            return children.forEach(child => child.style.visibility = "visible")
+    }
 
-        Array.forEach(book =>  {
+
+
+//Card & Button Styling 
+function displayBook (array){     
+        // increments with each new card creation, replace with for loop.
+
+        array.forEach(book =>  {
 
         // main container element for each card.  
         // Most styles implemented in JS and then classess added.
@@ -113,7 +132,6 @@ function displayBook (Array){
         const deleteBtn = document.createElement("button");
             const deleteWord = document.createTextNode("Delete");
            deleteBtn.setAttribute("id", "deleteBtn");
-            deleteBtn.setAttribute("data-index",`${(i++)}`);
             deleteBtn.classList.add("button");
 
         const appendBtn = document.createElement("div"); 
@@ -139,14 +157,16 @@ function displayBook (Array){
 
 
         deleteBtn.addEventListener("click", (e) => {
-            book.delete()
+            book.delete(e)
             })
 
 
-        //readBtn.addEventListener("click",(e) => {
-         //   book.isRead(e);
+        readBox.addEventListener("change",(e) => {
+            console.log("checked");
+            book.read(e);
         });
-        };
+        }
+        )};
 
 
-
+window.onload = function () {displayBook(bookArray)}
