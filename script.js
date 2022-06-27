@@ -21,27 +21,22 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages;
+    this.readStatus = false;
 
 
     this.read = function (e) {
        if (e.target.checked && this.readstatus === undefined || false) {
         console.log ("status set to true")
         return this.readStatus = true;
-       } else return this.readStatus = false;
-
-    }
+         } else return this.readStatus = false;
+        };
   
     this.delete = function (e) {
       let index = bookArray.findIndex(book => book.title === this.title);
       bookArray.splice(index, 1);
       target = e.target.parentNode; 
-        return target.parentNode.removeChild(target); 
-
-
-     // clearCurrentArray(); 
-     // displayBook(bookArray);
-    };
- 
+        return target.parentNode.removeChild(target);
+        };
     };
 
 // preventing form submission through PD, values provided by form 
@@ -56,11 +51,11 @@ newBook.addEventListener("submit", function (e) {
     let tempbook = new addBook(title, author, pages, year);
 
        if (title === "" || author === "" || year === ""){
-            return console.log("all fields required")
+            return alert(`Please complete all form fields`);
 
             } else {
                 pushBookToLib(tempbook);
-                //clearCurrentArray()
+                clearCurrentArray()
                 displayBook(bookArray)
                 return formValues.reset();
             }
@@ -68,11 +63,10 @@ newBook.addEventListener("submit", function (e) {
 
 
 // called during the submit eventListener
-
 const pushBookToLib = (book) => {
     return bookArray.push(book)
     };
-// demo book 
+// demo books
     const book1 = new addBook("to kill", "john Doe", "1234", "123");
     pushBookToLib(book1);
     
@@ -81,7 +75,7 @@ const pushBookToLib = (book) => {
 
 
 
-// Called in the submit, hideButton and displayButton El. 
+//called in the pushToLib function  
     function clearCurrentArray () {
         const children = Array.from(document.querySelectorAll("bookCard")); 
             return children.forEach(child => bookDisplay.removeChild(child));
@@ -141,7 +135,9 @@ function displayBook (array){
         const readBox = document.createElement("input");
             readBox.setAttribute("type", "checkbox")
             readBox.setAttribute("id", "read-button");
-            //readBox.classList.add("button")
+            if (book.readStatus === true) {
+                readBox.checked = true;
+            } else readBox.checked = false;
 
         //bookCard.innerText = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`;
         

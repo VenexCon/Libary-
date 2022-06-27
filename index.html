@@ -22,33 +22,12 @@
             <button class="hide-collection" id="hideButton">Hide Books</button>
             <button class="login" id="login">Login</button>
             <button class="create-account" id="create-account">Create account</button>
+            <button class="add-book-button">Add book</button>
             
         </div>
     </nav>
 
-
-<!--Display books with JS-->
-    <div class="bookCard-wrapper">
-        <div class="book-display" id="bookcase">
-
-           <!-- <div class="example-card">
-                <h3 class="bookCard-title">Title</h3>
-                <p class="author-style">Author</p>
-                <p class="year-style">Year:</p>
-                <p class="pages-style">Pages:</p><p class="inset-pages"></p>
-                <div class="append-box">
-                    Read <input type="checkbox">
-                </div>-->
-                   
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-
-<!--book form for user -->
+    <!--book form for user -->
     <div class="container is-active">
 
         <form id="new-book" method="/">
@@ -67,13 +46,13 @@
 
             <div class="labelFlex">
                 <label for="year"> Year Published
-                    <input type="text" class="year" id="year" name="year">
+                    <input type="number" class="year" id="year" name="year">
                 </label>
             </div>
 
             <div class="labelFlex">
                 <label for="pages"> No. of Pages
-                    <input type="num" class="num" id="pages" name="pages">
+                    <input type="number" class="num" id="pages" name="pages">
                 </label>
             </div>
             
@@ -83,6 +62,30 @@
         </form>
 
     </div>
+
+
+<!--Display books with JS-->
+    <div class="bookCard-wrapper">
+        <div class="book-display" id="bookcase">
+
+            <!--<div class="example-card">
+                <h3 class="bookCard-title">Title</h3>
+                <p class="author-style">Author</p>
+                <p class="year-style">Year:</p>
+                <p class="pages-style">Pages:</p><p class="inset-pages"></p>
+                <div class="append-box">
+                    Read <input type="checkbox" >
+                </div> --> 
+                   
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
 
 </main>
 

@@ -25,7 +25,7 @@
     //contains all elements on page.
     main {
         background-color: $font-base;
-        height: 100vh;
+        height: fit-content;
         width: 60vw;
         margin: auto;
         position: relative;
@@ -34,7 +34,7 @@
     nav {
         display: flex;
         //border: solid 2px black;
-        margin-bottom: 2rem;
+        
         min-height:4rem;
         width: 100%;
         flex-direction: row;
@@ -80,13 +80,14 @@
                 button { 
                     border-radius: none;
                     width: fit-content;
-                    height: 2rem;
+                    min-height: 2rem;
                     padding: 0.25rem;
                     outline-style: none;
                     outline: $nav-back-color;
                     font-size: 1rem;
                     background-color: #ff70d6;
                     color: $white;
+                    font-size: 1rem;
                     
                 }
 
@@ -144,7 +145,7 @@
   .container {
     border: solid 0.2rem $nav-back-color;
     max-width: fit-content;
-    margin:4rem auto;
+    margin:auto;
   
         form {
             font-style: italic;
@@ -182,7 +183,7 @@
 
 
     //media quirey section
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 600px) {
         
         nav * {
             margin: auto;
@@ -206,8 +207,19 @@
                 flex-grow: 1fr;
                 flex-shrink: 1;
                 margin:auto;
+
+                button { 
+                    margin: 0.5rem auto;
+                    display: block;
+                
+                }
     }
 
         
+    }
+
+
+    .example-card { 
+        margin: auto;
     }
 }

@@ -11,7 +11,9 @@
 
 main {
   background-color: #70d8ff;
-  height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 60vw;
   margin: auto;
   position: relative;
@@ -21,7 +23,6 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 2rem;
   min-height: 4rem;
   width: 100%;
   -webkit-box-orient: horizontal;
@@ -89,13 +90,14 @@ nav .buttonWrapper button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: 2rem;
+  min-height: 2rem;
   padding: 0.25rem;
   outline-style: none;
   outline: #ff70d6;
   font-size: 1rem;
   background-color: #ff70d6;
   color: #ffff;
+  font-size: 1rem;
 }
 
 .book-display {
@@ -154,7 +156,7 @@ nav .buttonWrapper button {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  margin: 4rem auto;
+  margin: auto;
 }
 
 .container form {
@@ -190,7 +192,7 @@ nav .buttonWrapper button {
   margin: 0.5rem auto;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 600px) {
   nav * {
     margin: auto;
   }
@@ -228,6 +230,13 @@ nav .buttonWrapper button {
             flex-grow: 1fr;
     -ms-flex-negative: 1;
         flex-shrink: 1;
+    margin: auto;
+  }
+  nav .buttonWrapper button {
+    margin: 0.5rem auto;
+    display: block;
+  }
+  .example-card {
     margin: auto;
   }
 }
