@@ -143,25 +143,38 @@
   /* Book Submit Form Styling */
 
   .container {
-    border: solid 0.2rem $nav-back-color;
+    //border: solid 0.2rem $nav-back-color;
     max-width: fit-content;
-    margin:auto;
+    margin:1rem auto;
   
         form {
             font-style: italic;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            .labelFlex {
+                max-width: 50%;
+                text-align: center;
+
+            }
 
         #user-title, #year, #author, #pages {
-            margin-top: 0.5rem;
-            display: block;
+            margin-top: 0.5rem auto;
+            //display: block;
             color: $detailing;
             font-style: italic;
            
         }
 
         label {
-            display: block;
             margin-top: 0.5rem;
+            font-size: 1rem;
         }
+        
+        input{
+            //max-width: 100%;
+        };
 
         
         button { 
@@ -174,7 +187,7 @@
             outline: $nav-back-color;
             background-color: #ff70d6;
             color: $white;
-            margin: 0.5rem auto;
+            margin: 1rem auto;
                     }
 
                 }
@@ -217,9 +230,17 @@
 
         
     }
+    .container {
 
-
+        form { 
+            flex-direction: column;
+            align-items:center;
+            justify-items: center;
+        }
+    }
     .example-card { 
         margin: auto;
     }
+
+
 }

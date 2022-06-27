@@ -152,27 +152,39 @@ nav .buttonWrapper button {
 
 /* Book Submit Form Styling */
 .container {
-  border: solid 0.2rem #ff70d6;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .container form {
   font-style: italic;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.container form .labelFlex {
+  max-width: 50%;
+  text-align: center;
 }
 
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
-  margin-top: 0.5rem;
-  display: block;
+  margin-top: 0.5rem auto;
   color: #ed682a;
   font-style: italic;
 }
 
 .container form label {
-  display: block;
   margin-top: 0.5rem;
+  font-size: 1rem;
 }
 
 .container form button {
@@ -189,7 +201,7 @@ nav .buttonWrapper button {
   outline: #ff70d6;
   background-color: #ff70d6;
   color: #ffff;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -235,6 +247,16 @@ nav .buttonWrapper button {
   nav .buttonWrapper button {
     margin: 0.5rem auto;
     display: block;
+  }
+  .container form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
   }
   .example-card {
     margin: auto;
