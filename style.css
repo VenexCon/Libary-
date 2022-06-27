@@ -98,7 +98,6 @@ nav .buttonWrapper button {
 }
 
 .book-display {
-  border: solid 2px #ed682a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,7 +143,7 @@ nav .buttonWrapper button {
 
 /* Book Submit Form Styling */
 .container {
-  border: solid 2px red;
+  border: solid 0.2rem #ff70d6;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -154,6 +153,7 @@ nav .buttonWrapper button {
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
   margin-top: 0.5rem;
   display: block;
+  color: #ed682a;
 }
 
 .container form label {

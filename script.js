@@ -21,14 +21,21 @@ function addBook (title, author, year, pages) {
     this.author = author; 
     this.year = year;
     this.pages = pages;
-    this.read = "no";
+    this.read = false;
 
     this.isRead = function read(e){
         console.log(`Has ${this.title} been read? ${this.read}`)
             return this.read = "This book has been read";
             };
+  
+    this.delete = function () {
+      let index = bookArray.findIndex(book => book.title === this.title);
+      bookArray.splice(index, 1);
+      clearCurrentArray(); 
+      displayBook(bookArray);
     };
-
+ 
+    };
 
 // preventing form submission through PD, values provided by form 
 newBook.addEventListener("submit", function (e) {
@@ -61,6 +68,9 @@ const pushBookToLib = (book) => {
 // demo book 
     const book1 = new addBook("to kill", "john Doe", "1234", "123");
     pushBookToLib(book1);
+    
+      const book2 = new addBook("to rob", "john Row", "1234", "123");
+    pushBookToLib(book2);
 
 // Called in the submit, hideButton and displayButton El. 
     function clearCurrentArray () {
@@ -68,24 +78,13 @@ const pushBookToLib = (book) => {
             return children.forEach(child => bookDisplay.removeChild(child));
     }
 
-//Delete Card Button 
- const deleteSelf = function (e) {
-        let selection = e.currentTarget.getAttribute("data-index") //data-index assigned in displayBook Func
-            bookArray.splice (selection, 1)
-            clearCurrentArray(); 
-            displayBook(bookArray)
-            return console.log("Book deleted") 
-        };
             
-    
 //Card & Button Styling 
 function displayBook (Array){     
         // increments with each new card creation, replace with for loop.
         let i = 0;
 
         Array.forEach(book =>  {
-
-
 
         // main container element for each card.  
         // Most styles implemented in JS and then classess added.
@@ -94,60 +93,60 @@ function displayBook (Array){
 
         const titleEle = document.createElement("h3")
             titleEle.classList.add("bookCard-title")
-            titleEle.textContent = `${this.title}`;
+            titleEle.textContent = `Title: ${book.title}`;
 
         const pagesEle = document.createElement("p")
-            pages.classList.add("pages-style")
-            pages.textContent = `${this.pages}`;
+            pagesEle.classList.add("pages-style")
+            pagesEle.textContent = `Pages: ${book.pages}`;
 
         const authorEle = document.createElement("p")
-            author.classList.add ("author-style")
-            author.textContent = `${this.author}`;
+            authorEle.classList.add ("author-style")
+            authorEle.textContent = `Author: ${book.author}`;
 
         const yearEle = document.createElement("p")
-            year.classList.add("year-style")
-            year.textContent = `${this.year}`;
+            yearEle.classList.add("year-style")
+            yearEle.textContent = `Year: ${book.year}`;
 
         const appendButton = document.createElement("div");
             appendButton.classList.add("appendBtn");
 
         const deleteBtn = document.createElement("button");
             const deleteWord = document.createTextNode("Delete");
-            deleteBtn.setAttribute("id", "deleteBtn");
+           deleteBtn.setAttribute("id", "deleteBtn");
             deleteBtn.setAttribute("data-index",`${(i++)}`);
             deleteBtn.classList.add("button");
 
-        const readBtn = document.createElement("button");
-            const readBtnWord = document.createTextNode("Read");
-            readBtn.setAttribute("id", "read-button");
-            readBtn.classList.add("button")
+        const appendBtn = document.createElement("div"); 
+                appendBtn.classList.add("append-box");
+                appendBtn.textContent = `Read `;
+
+        const readBox = document.createElement("input");
+            readBox.setAttribute("type", "checkbox")
+            readBox.setAttribute("id", "read-button");
+            //readBox.classList.add("button")
 
         //bookCard.innerText = `${book.title}, ${book.author}, ${book.year}, ${book.pages}`;
         
         deleteBtn.appendChild(deleteWord);
-        readBtn.appendChild(readBtnWord);
+        appendBtn.appendChild(readBox);
         bookCard.appendChild(titleEle);
         bookCard.appendChild(authorEle);
         bookCard.appendChild(yearEle);
         bookCard.appendChild(pagesEle);
+        bookCard.appendChild(appendBtn);
         bookCard.appendChild(deleteBtn);
-        bookCard.appendChild(readBtn);
-
         bookDisplay.appendChild(bookCard); 
 
 
         deleteBtn.addEventListener("click", (e) => {
-            deleteSelf(e)
+            book.delete()
             })
 
 
-        readBtn.addEventListener("click",(e) => {
-            book.isRead(e);
+        //readBtn.addEventListener("click",(e) => {
+         //   book.isRead(e);
         });
-        });
-
         };
-
 
 
 

@@ -92,7 +92,7 @@
 
 // Dynamic elements appenede to book-display
     .book-display {
-        border: solid 2px $detailing;
+        //border: solid 2px $detailing;
         display: flex; 
         gap: 1rem; 
         flex-wrap: wrap; 
@@ -129,7 +129,7 @@
   /* Book Submit Form Styling */
 
   .container {
-    border: solid 2px red;
+    border: solid 0.2rem $nav-back-color;
     max-width: fit-content;
     margin:4rem auto;
   
@@ -138,6 +138,7 @@
         #user-title, #year, #author, #pages {
             margin-top: 0.5rem;
             display: block;
+            color: $detailing;
         }
 
         label {
