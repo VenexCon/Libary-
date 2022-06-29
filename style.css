@@ -65,7 +65,7 @@ nav .logoWrapper h1 {
 }
 
 nav img {
-  width: 10vw;
+  width: 20vw;
 }
 
 nav .buttonWrapper {
@@ -152,6 +152,7 @@ nav .buttonWrapper button {
 
 /* Book Submit Form Styling */
 .container {
+  border: solid 0.2rem #ff70d6;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -169,15 +170,23 @@ nav .buttonWrapper button {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container form .labelFlex {
+  width: 50%;
   max-width: 50%;
   text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
   margin-top: 0.5rem auto;
+  display: block;
   color: #ed682a;
   font-style: italic;
 }
@@ -185,6 +194,12 @@ nav .buttonWrapper button {
 .container form label {
   margin-top: 0.5rem;
   font-size: 1rem;
+}
+
+.container form input {
+  display: block;
+  margin: auto;
+  max-width: 100%;
 }
 
 .container form button {
