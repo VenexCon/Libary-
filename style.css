@@ -1,10 +1,10 @@
+@charset "UTF-8";
 /*Imports */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 /* Variables */
 * {
-  font-family: 'Noto Serif', serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  font-family: "Noto Serif", serif;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -20,71 +20,42 @@ main {
 }
 
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-height: 4rem;
   width: 100%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
   background-color: #ff70d6;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 0.5rem;
 }
-
 nav .logoWrapper {
-  -webkit-box-flex: 1fr;
-      -ms-flex-positive: 1fr;
-          flex-grow: 1fr;
+  flex-grow: 1fr;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   color: #70d8ff;
 }
-
 nav .logoWrapper h1 {
   margin-left: 2rem;
   font-size: 2rem;
 }
-
 nav img {
   width: 20vw;
 }
-
 nav .buttonWrapper {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   min-height: 1.5rem;
   padding-right: 2rem;
-  -webkit-box-flex: 1fr;
-      -ms-flex-positive: 1fr;
-          flex-grow: 1fr;
+  flex-grow: 1fr;
   margin-left: auto;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
+  flex-shrink: 1;
 }
-
 nav .buttonWrapper button {
   border-radius: none;
   width: -webkit-fit-content;
@@ -96,24 +67,17 @@ nav .buttonWrapper button {
   outline: #ff70d6;
   font-size: 1rem;
   background-color: #ff70d6;
-  color: #ffff;
+  color: white;
   font-size: 1rem;
 }
 
 .book-display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: row;
   padding: 1rem;
 }
-
 .book-display .example-card {
   border: solid 2px #efe704;
   width: 25%;
@@ -123,20 +87,14 @@ nav .buttonWrapper button {
   min-height: 10rem;
   height: 30%;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 0.5rem;
   background-color: #ee00ff;
-  color: #ffff;
+  color: white;
   border-radius: 5px;
   padding: 0.5rem;
 }
-
 .book-display .example-card button {
   width: 50%;
   margin: auto;
@@ -158,50 +116,37 @@ nav .buttonWrapper button {
   max-width: fit-content;
   margin: 1rem auto;
 }
-
 .container form {
   font-style: italic;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
 }
-
 .container form .labelFlex {
   width: 50%;
   max-width: 50%;
   text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
-
 .container form #user-title, .container form #year, .container form #author, .container form #pages {
   margin-top: 0.5rem auto;
   display: block;
   color: #ed682a;
   font-style: italic;
 }
-
 .container form label {
   margin-top: 0.5rem;
   font-size: 1rem;
 }
-
 .container form input {
   display: block;
   margin: auto;
   max-width: 100%;
 }
-
 .container form button {
   display: block;
   border-radius: none;
@@ -215,8 +160,37 @@ nav .buttonWrapper button {
   outline-style: none;
   outline: #ff70d6;
   background-color: #ff70d6;
-  color: #ffff;
+  color: white;
   margin: 1rem auto;
+}
+
+/* Validation Styling */
+.error {
+  width: 45%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  background-color: rgba(255, 0, 0, 0.308);
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+}
+.error.invalid {
+  border: 1px solid red;
+}
+.error.invalid:after {
+  content: "⚑";
+  color: red;
+  margin-right: 0.25rem;
+}
+.error.valid {
+  border-color: black;
+  background-color: rgba(64, 234, 42, 0.5490196078);
+}
+.error.valid:after {
+  content: "✓";
+  margin-right: 0.25rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -224,39 +198,22 @@ nav .buttonWrapper button {
     margin: auto;
   }
   nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   nav .buttonWrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
     min-height: fit-content;
     padding-right: 0;
-    -webkit-box-flex: 1fr;
-        -ms-flex-positive: 1fr;
-            flex-grow: 1fr;
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-grow: 1fr;
+    flex-shrink: 1;
     margin: auto;
   }
   nav .buttonWrapper button {
@@ -264,17 +221,11 @@ nav .buttonWrapper button {
     display: block;
   }
   .container form {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
     justify-items: center;
   }
   .example-card {
     margin: auto;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

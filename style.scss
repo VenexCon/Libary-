@@ -155,13 +155,13 @@
             align-items: center;
             
 
-            .labelFlex {
-                width: 50%;
-                max-width: 50%;
-                text-align: center;
-                align-items: center;
-
-            }
+        .labelFlex {
+            width: 50%;
+            max-width: 50%;
+            text-align: center;
+            align-items: center;
+            min-height: fit-content;
+        }
 
         #user-title, #year, #author, #pages {
             margin-top: 0.5rem auto;
@@ -194,10 +194,51 @@
             background-color: #ff70d6;
             color: $white;
             margin: 1rem auto;
-                    }
-
-                }
             }
+        }
+    }
+
+    /* Validation Styling */
+    .error {
+        //border: 2px solid;
+        width: 45%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        background-color: rgba(255, 0, 0, 0.308);
+        border-radius: 5px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-style: normal;
+
+
+        &.invalid {
+            border: 1px solid red;
+
+            &:after {
+                content: "\2691";
+                color: red;
+                margin-right: 0.25rem;
+            }
+
+        }
+
+        &.valid {
+            border-color: black;
+            background-color: #40ea2a8c;
+            
+            &:after{
+            content: "\2713";
+            margin-right: 0.25rem;
+            }
+            
+        }
+
+
+
+    }
+
+
     
 
 

@@ -30,30 +30,34 @@
     <!--book form for user -->
     <div class="container is-active">
 
-        <form id="new-book" method="/">
+        <form id="new-book" novalidate>
 
             <div class="labelFlex">
                 <label for="user-title">Title of Book
-                    <input type="text" id="user-title" name="title">
+                    <input type="text" id="user-title" name="title" required aria-required="true">
                 </label>
+                <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="author">Author(s)
-                    <input type="text" class="author" id="author" name="author">
+                    <input type="text" class="author" id="author" name="author" required aria-required="true">
                 </label>
+                <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="year"> Year Published
-                    <input type="number" class="year" id="year" name="year">
+                    <input type="number" class="year" id="year" name="year" required aria-required="true">
                 </label>
+                <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="pages"> No. of Pages
-                    <input type="number" class="num" id="pages" name="pages">
+                    <input type="number" class="num" id="pages" name="pages" required aria-required="true">
                 </label>
+                <span class="error"></span>
             </div>
             
             
