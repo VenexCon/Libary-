@@ -34,28 +34,28 @@
 
             <div class="labelFlex">
                 <label for="user-title">Title of Book
-                    <input type="text" id="user-title" name="title" required aria-required="true">
+                    <input type="text" id="user-title" name="title" required aria-required="true" minlength="4">
                 </label>
                 <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="author">Author(s)
-                    <input type="text" class="author" id="author" name="author" required aria-required="true">
+                    <input type="text" class="author" id="author" name="author" required aria-required="true" minlength="4">
                 </label>
                 <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="year"> Year Published
-                    <input type="number" class="year" id="year" name="year" required aria-required="true">
+                    <input type="number" class="year" id="year" name="year" required aria-required="true" min="900" max="2022">
                 </label>
                 <span class="error"></span>
             </div>
 
             <div class="labelFlex">
                 <label for="pages"> No. of Pages
-                    <input type="number" class="num" id="pages" name="pages" required aria-required="true">
+                    <input type="number" class="num" id="pages" name="pages" required aria-required="true" min="1" max="9000">
                 </label>
                 <span class="error"></span>
             </div>

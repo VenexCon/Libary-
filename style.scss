@@ -191,9 +191,13 @@
             padding: 0.25rem;
             outline-style: none;
             outline: $nav-back-color;
-            background-color: #ff70d6;
+            background-color: #f33cbf;
             color: $white;
             margin: 1rem auto;
+
+            &:disabled {
+                opacity: 0.5;
+            }
             }
         }
     }
@@ -201,21 +205,22 @@
     /* Validation Styling */
     .error {
         //border: 2px solid;
-        width: 45%;
-        margin-top: 1rem;
+        width: 80%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         margin: auto;
         background-color: rgba(255, 0, 0, 0.308);
         border-radius: 5px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-style: normal;
+        font-size: small;
+        margin-top: 0.15rem;
 
 
         &.invalid {
             border: 1px solid red;
 
-            &:after {
+            &:before {
                 content: "\2691";
                 color: red;
                 margin-right: 0.25rem;
@@ -224,12 +229,14 @@
         }
 
         &.valid {
+            border: 1px solid darkgreen;
             border-color: black;
             background-color: #40ea2a8c;
             
             &:after{
             content: "\2713";
             margin-right: 0.25rem;
+            color: darkgreen;
             }
             
         }

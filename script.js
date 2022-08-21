@@ -162,6 +162,69 @@ window.onload = function () {
 
 /* Verification JS in Browser*/
 const form = document.querySelectorAll("form")[0];
-const inputs = document.querySelectorAll("input");
 const errors = document.querySelectorAll(".error");
-console.log(errors);
+const titleInput = document.getElementById("user-title");
+const authorInput = document.getElementById("author");
+const yearInput = document.getElementById("year");
+const pagesInput = document.getElementById("pages");
+const button = document.getElementById("#button");
+
+titleInput.addEventListener("input", (e) => {
+  titleValid(e);
+});
+
+const titleValid = (e) => {
+  const error = titleInput.parentNode.parentNode.querySelector(".error");
+  if (titleInput.validity.valid) {
+    button.disabled = false;
+    error.textContent = " ";
+    error.classList.remove("invalid");
+    return error.classList.add("valid");
+  } else error.classList.remove("valid");
+  error.classList.add("invalid");
+  button.disabled = true;
+  error.textContent = "4 Characters Required";
+};
+
+authorInput.addEventListener("input", (e) => {
+  authorValid(e);
+});
+const authorValid = (e) => {
+  const error = authorInput.parentNode.parentNode.querySelector(".error");
+  if (authorInput.validity.valid) {
+    error.textContent = "";
+    error.classList.remove("invalid");
+    return error.classList.add("valid");
+  } else error.classList.remove("valid");
+  error.classList.add("invalid");
+  error.textContent = "4 Characters Required";
+};
+
+yearInput.addEventListener("input", (e) => {
+  yearValid(e);
+});
+const yearValid = (e) => {
+  const error = yearInput.parentNode.parentNode.querySelector(".error");
+  if (yearInput.validity.valid) {
+    error.textContent = "";
+    error.classList.remove("invalid");
+    return error.classList.add("valid");
+  } else error.classList.remove("valid");
+  error.classList.add("invalid");
+  error.textContent = "Maximum date is 2022";
+};
+
+pagesInput.addEventListener("input", (e) => {
+  pagesValid(e);
+});
+
+const pagesValid = (e) => {
+  const error = pagesInput.parentNode.parentNode.querySelector(".error");
+  if (pagesInput.validity.valid) {
+    error.textContent = "";
+    error.classList.remove("invalid");
+    return error.classList.add("valid");
+  } else error.classList.remove("valid");
+  error.classList.add("invalid");
+  error.textContent = "must have atleast one page";
+};

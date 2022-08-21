@@ -159,38 +159,44 @@ nav .buttonWrapper button {
   padding: 0.25rem;
   outline-style: none;
   outline: #ff70d6;
-  background-color: #ff70d6;
+  background-color: #f33cbf;
   color: white;
   margin: 1rem auto;
+}
+.container form button:disabled {
+  opacity: 0.5;
 }
 
 /* Validation Styling */
 .error {
-  width: 45%;
-  margin-top: 1rem;
+  width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: auto;
   background-color: rgba(255, 0, 0, 0.308);
   border-radius: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
+  font-size: small;
+  margin-top: 0.15rem;
 }
 .error.invalid {
   border: 1px solid red;
 }
-.error.invalid:after {
+.error.invalid:before {
   content: "⚑";
   color: red;
   margin-right: 0.25rem;
 }
 .error.valid {
+  border: 1px solid darkgreen;
   border-color: black;
   background-color: rgba(64, 234, 42, 0.5490196078);
 }
 .error.valid:after {
   content: "✓";
   margin-right: 0.25rem;
+  color: darkgreen;
 }
 
 @media only screen and (max-width: 600px) {
