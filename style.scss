@@ -177,6 +177,7 @@
         }
         
         input{
+            border: 2px solid black;
             display: block;
             margin: auto;
             max-width: 100%;
@@ -205,7 +206,8 @@
     /* Validation Styling */
     .error {
         //border: 2px solid;
-        width: 80%;
+        width: 45%;
+        max-width: 45%;
         display: flex;
         justify-content: center;
         margin: auto;
@@ -294,6 +296,14 @@
     }
     .example-card { 
         margin: auto;
+    }
+
+
+    .error {
+        width: 80%;
+        max-width: 80%;
+        font-size: smaller;
+
     }
 
 

@@ -167,7 +167,7 @@ const titleInput = document.getElementById("user-title");
 const authorInput = document.getElementById("author");
 const yearInput = document.getElementById("year");
 const pagesInput = document.getElementById("pages");
-const button = document.getElementById("#button");
+const button = document.getElementById("submit");
 
 titleInput.addEventListener("input", (e) => {
   titleValid(e);
@@ -176,13 +176,11 @@ titleInput.addEventListener("input", (e) => {
 const titleValid = (e) => {
   const error = titleInput.parentNode.parentNode.querySelector(".error");
   if (titleInput.validity.valid) {
-    button.disabled = false;
     error.textContent = " ";
     error.classList.remove("invalid");
     return error.classList.add("valid");
   } else error.classList.remove("valid");
   error.classList.add("invalid");
-  button.disabled = true;
   error.textContent = "4 Characters Required";
 };
 
@@ -228,3 +226,18 @@ const pagesValid = (e) => {
   error.classList.add("invalid");
   error.textContent = "must have atleast one page";
 };
+
+form.addEventListener("input", () => {
+  formValidityCheck();
+});
+
+const formValidityCheck = () => {
+  authorInput.validity.valid &&
+  titleInput.validity.valid &&
+  pagesInput.validity.valid &&
+  yearInput.validity.valid
+    ? (button.disabled = false)
+    : (button.disabled = true);
+};
+
+window.onload(pagesValid(e));
